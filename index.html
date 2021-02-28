@@ -11,33 +11,35 @@
 		<div class="container">
 			<h1 class="title">Tip Calc</h1>
 			<div class="box tip">
-				<div class="bill-amount">
-					<label for="bill-amt">Bill Amount:</label>
-					<input type="text" id="bill-amt" name="bill-amt" />
-				</div>
-
-				<div class="percentage">
-					<div class="spacers">
-						<label for="tip-slider">Tip Percent:</label>
-						<span class="tip-percent">0%</span>
+				<div class="wrapper">
+					<div class="bill-amount">
+						<label for="bill-amt">Bill Amount:</label>
+						<input type="text" id="bill-amt" name="bill-amt" />
 					</div>
 
-					<input
-						type="range"
-						name="tip-slider"
-						id="tip-slider"
-						min="0"
-						max="100"
-					/>
-				</div>
-				<div class="tip-total">
-					<span>Tip Amount</span>
-					<span class="tip-value">$0.00</span>
-				</div>
-				<hr />
-				<div class="spacers total-bill">
-					<span><strong>Total</strong></span>
-					<span><strong>$0.00</strong></span>
+					<div class="percentage">
+						<div class="spacers">
+							<label for="tip-slider">Tip Percent:</label>
+							<span class="tip-percent">0%</span>
+						</div>
+
+						<input
+							type="range"
+							name="tip-slider"
+							id="tip-slider"
+							min="0"
+							max="100"
+						/>
+					</div>
+					<div class="tip-total">
+						<span>Tip Amount</span>
+						<span class="tip-value">$0.00</span>
+					</div>
+					<hr />
+					<div class="spacers total-bill">
+						<span><strong>Total</strong></span>
+						<span><strong>$0.00</strong></span>
+					</div>
 				</div>
 			</div>
 			<div class="box split">

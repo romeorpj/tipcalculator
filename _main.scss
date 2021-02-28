@@ -1,0 +1,35 @@
+// main box
+.container {
+	max-width: 95vw;
+	background-color: #7cffcb;
+	background-image: linear-gradient(315deg, #7cffcb 0%, #74f2ce 74%);
+
+	border-radius: 25px;
+	display: grid;
+	place-items: center;
+	margin: 15% auto;
+	padding: 2rem 0;
+	color: rgb(70, 69, 69);
+}
+
+.title {
+	font-size: 2.7rem;
+	margin-bottom: 30px;
+}
+// boxes
+.box {
+	background-color: $box-color;
+	border-radius: $box-border;
+	width: $box-width;
+	margin-bottom: 3rem;
+	padding: 25px 0;
+}
+.wrapper {
+	width: 90%;
+	margin: 0 auto;
+}
+// upper box
+.tip {
+	margin-bottom: 3rem;
+}
+// lower box
