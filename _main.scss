@@ -32,4 +32,10 @@
 .tip {
 	margin-bottom: 3rem;
 }
+#bill-amt::placeholder {
+	color: red;
+}
+// input::placeholder:first-of-type {
+// 	color: red;
+// }
 // lower box

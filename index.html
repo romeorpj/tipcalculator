@@ -14,7 +14,12 @@
 				<div class="wrapper">
 					<div class="bill-amount">
 						<label for="bill-amt">Bill Amount:</label>
-						<input type="text" id="bill-amt" name="bill-amt" />
+						<input
+							type="text"
+							id="bill-amt"
+							name="bill-amt"
+							placeholder="Enter Bill Amount"
+						/>
 					</div>
 
 					<div class="percentage">
@@ -43,26 +48,28 @@
 				</div>
 			</div>
 			<div class="box split">
-				<div class="spacers">
-					<!-- if 2 or more change to people -->
-					<label for="split-slider">Split:</label>
-					<span class="split-people">1 person</span>
-				</div>
-				<input
-					type="range"
-					name="split-slider"
-					id="split-slider"
-					min="1"
-					max="20"
-					value="1"
-				/>
-				<div class="spacers">
-					<span class="split-people">Tip/person:</span>
-					<span class="split-people">$0.00</span>
-				</div>
-				<div class="spacers">
-					<span class="split-people">Total bill/person:</span>
-					<span class="split-people">$0.00</span>
+				<div class="wrapper">
+					<div class="spacers">
+						<!-- if 2 or more change to people -->
+						<label for="split-slider">Split:</label>
+						<span class="split-people">1 person</span>
+					</div>
+					<input
+						type="range"
+						name="split-slider"
+						id="split-slider"
+						min="1"
+						max="20"
+						value="1"
+					/>
+					<div class="spacers">
+						<span class="split-people">Tip/person:</span>
+						<span class="split-people">$0.00</span>
+					</div>
+					<div class="spacers">
+						<span class="split-people">Total bill/person:</span>
+						<span class="split-people">$0.00</span>
+					</div>
 				</div>
 			</div>
 		</div>
