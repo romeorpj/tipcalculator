@@ -1,21 +1,21 @@
 // main box
 .container {
-	max-width: 95vw;
-	height: 90vh;
-	background-color: #7cffcb;
-	background-image: linear-gradient(315deg, #7cffcb 0%, #74f2ce 74%);
+	max-width: 100vw;
+	height: 100vh;
+	background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 
-	border-radius: 25px;
+	// border-radius: 25px;
+
 	display: grid;
 	place-items: center;
-	margin: 10% auto;
-	padding: 2rem 0;
+	margin: 0 auto;
+	padding: 0 0 0 0;
 	color: rgb(70, 69, 69);
 }
 
 .title {
 	font-size: 2.7rem;
-	margin-bottom: 5px;
+	// margin-bottom: 5px;
 }
 // boxes
 .box {
@@ -36,22 +36,97 @@
 .bill-amount {
 	@include flex-row;
 	justify-content: space-between;
+	margin-bottom: 2rem;
+
+	::placeholder {
+		color: rgb(95, 95, 95);
+		font-style: italic;
+		font-family: "Roboto", sans-serif;
+	}
 }
 #bill-amt {
-	outline: blue;
-	padding: 12px;
+	// outline-color: rgba(0, 255, 221, 0.096);
+	padding: 8px;
 	background: #f0f0f0;
 	width: 200px;
 	box-shadow: inset 0px 2px 3px 0px rgba($color: #5e5e5e, $alpha: 0.2);
-	border-radius: 10px;
+	border-radius: 5px;
 	border: 1px solid lightgray;
+
+	font-size: 1.6rem;
+	font-weight: 300;
+	color: rgb(70, 69, 69);
+	font-family: "Roboto", sans-serif;
+	letter-spacing: 1.2px;
 }
 .bill-amtc {
 	margin-right: 2rem;
 }
-// input::placeholder:first-of-type {
-// 	color: red;
-// }
-// lower box
 
-// input[type="text"]
+// TIP SLIDER
+
+.tip-space {
+	margin-bottom: 1rem;
+}
+
+#tip-slider {
+	width: 100%;
+	margin-bottom: 4rem;
+}
+// REMOVE DEFAULT STYLING
+input[type="range"] {
+	appearance: none;
+}
+// ADD CUSTOM TRACK & THUMB STYLING
+input[type="range"] {
+	-webkit-appearance: none;
+	&:focus {
+		outline: none;
+	}
+	&::-webkit-slider-runnable-track {
+		height: 1px;
+		cursor: pointer;
+		box-shadow: none;
+		background: #bbbbbb;
+		border-radius: 0px;
+		// border: 0px solid #010101;
+	}
+	&::-moz-range-track {
+		height: 1px;
+		cursor: pointer;
+		box-shadow: none;
+		background: #aaaaaa;
+		border-radius: 0px;
+		border: 0px solid #010101;
+	}
+	&::-moz-range-thumb {
+		box-shadow: none;
+		border: 0px solid #ffffff;
+		box-shadow: 0px 4px 7px rgba(51, 51, 51, 0.308);
+		height: 32px;
+		width: 22px;
+		border-radius: 22px;
+		background: rgb(92, 92, 92);
+		cursor: pointer;
+		-webkit-appearance: none;
+		margin-top: -16px;
+	}
+	&::-webkit-slider-thumb {
+		box-shadow: none;
+		border: 0px solid #ffffff;
+		box-shadow: 0px 4px 7px rgba(51, 51, 51, 0.308);
+		height: 32px;
+		width: 22px;
+		border-radius: 22px;
+		background: rgb(92, 92, 92);
+		cursor: pointer;
+		-webkit-appearance: none;
+		margin-top: -16px;
+	}
+}
+
+// bottom box
+#split-slider {
+	width: 100%;
+	margin-bottom: 4rem;
+}
