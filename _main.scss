@@ -1,20 +1,21 @@
 // main box
 .container {
 	max-width: 95vw;
+	height: 90vh;
 	background-color: #7cffcb;
 	background-image: linear-gradient(315deg, #7cffcb 0%, #74f2ce 74%);
 
 	border-radius: 25px;
 	display: grid;
 	place-items: center;
-	margin: 15% auto;
+	margin: 10% auto;
 	padding: 2rem 0;
 	color: rgb(70, 69, 69);
 }
 
 .title {
 	font-size: 2.7rem;
-	margin-bottom: 30px;
+	margin-bottom: 5px;
 }
 // boxes
 .box {
@@ -32,10 +33,24 @@
 .tip {
 	margin-bottom: 3rem;
 }
-.bill-amount::placeholder {
-	color: blue;
+.bill-amount {
+	@include flex-row;
+	justify-content: space-between;
+}
+#bill-amt {
+	outline: blue;
+	padding: 12px;
+	background: #f0f0f0;
+	width: 200px;
+	box-shadow: inset 0px 2px 3px 0px rgba($color: #5e5e5e, $alpha: 0.2);
+	border-radius: 10px;
+	border: 1px solid lightgray;
+}
+.bill-amtc {
+	margin-right: 2rem;
 }
 // input::placeholder:first-of-type {
 // 	color: red;
 // }
 // lower box
+input[type="text"]

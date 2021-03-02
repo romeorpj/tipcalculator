@@ -9,10 +9,11 @@
 }
 
 html {
-	font-family: sans-serif;
+	font-family: "Roboto", sans-serif;
 	// resetting font size to 10px makes rem math much easier
 	font-size: 10px;
 	box-sizing: border-box;
+	font-weight: 300;
 }
 
 a {
@@ -26,7 +27,10 @@ ul {
 p {
 	font-size: 1.6rem;
 }
-
+span,
+label {
+	font-size: 1.8rem;
+}
 img {
 	//makes images auto responsive
 	// without overflowing, all while staying proportional
@@ -34,6 +38,14 @@ img {
 	max-width: 100%;
 	height: 100%;
 }
+// variables
 $box-color: rgb(250, 250, 250);
 $box-border: 20px;
 $box-width: 90%;
+
+// mixins
+@mixin flex-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

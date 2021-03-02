@@ -9,10 +9,11 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-weight: 300;
 }
 
 a {
@@ -27,6 +28,11 @@ p {
   font-size: 1.6rem;
 }
 
+span,
+label {
+  font-size: 1.8rem;
+}
+
 img {
   width: 100%;
   max-width: 100%;
@@ -35,20 +41,21 @@ img {
 
 .container {
   max-width: 95vw;
+  height: 90vh;
   background-color: #7cffcb;
   background-image: linear-gradient(315deg, #7cffcb 0%, #74f2ce 74%);
   border-radius: 25px;
   display: -ms-grid;
   display: grid;
   place-items: center;
-  margin: 15% auto;
+  margin: 10% auto;
   padding: 2rem 0;
   color: #464545;
 }
 
 .title {
   font-size: 2.7rem;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 .box {
@@ -66,5 +73,34 @@ img {
 
 .tip {
   margin-bottom: 3rem;
+}
+
+.bill-amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#bill-amt {
+  padding: 12px;
+  background: #f0f0f0;
+  width: 200px;
+  -webkit-box-shadow: inset 0px 2px 3px 0px rgba(94, 94, 94, 0.3);
+          box-shadow: inset 0px 2px 3px 0px rgba(94, 94, 94, 0.3);
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
+
+.bill-amtc {
+  margin-right: 2rem;
 }
 /*# sourceMappingURL=style.css.map */
