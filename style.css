@@ -58,17 +58,19 @@ img {
 .container {
   max-width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: #a5b1c2;
   display: -ms-grid;
   display: grid;
   place-items: center;
   margin: 0 auto;
   padding: 0 0 0 0;
-  color: #464545;
+  color: #728599;
 }
 
 .title {
   font-size: 2.7rem;
+  color: #ecf5ff;
+  letter-spacing: 0.3rem;
 }
 
 .box {
@@ -76,7 +78,7 @@ img {
   border-radius: 20px;
   width: 90%;
   margin-bottom: 3rem;
-  padding: 25px 0;
+  padding: 15px 0;
 }
 
 .wrapper {
@@ -129,6 +131,7 @@ img {
 }
 
 #bill-amt {
+  outline-color: #778ca3;
   padding: 8px;
   background: #f0f0f0;
   width: 200px;
@@ -210,7 +213,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 32px;
   width: 22px;
   border-radius: 22px;
-  background: #5c5c5c;
+  background: #4b6584;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -16px;
