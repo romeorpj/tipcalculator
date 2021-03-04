@@ -14,7 +14,14 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1 class="title">Tip Calculator</h1>
+			<!-- <h1 class="title">Tip Calculator</h1> -->
+			<lord-icon
+				src="https://cdn.lordicon.com//qhviklyi.json"
+				trigger="click"
+				colors="primary:#353b48,secondary:#718093"
+				style="width: 64px; height: 64px"
+			>
+			</lord-icon>
 			<div class="box tip">
 				<div class="wrapper">
 					<div class="bill-amount">
@@ -47,7 +54,7 @@
 					<hr />
 					<div class="spacers total-bill">
 						<span><strong>Total</strong></span>
-						<span><strong>$0.00</strong></span>
+						<span class="bill-total"><strong>$0.00</strong></span>
 					</div>
 				</div>
 			</div>
@@ -67,16 +74,17 @@
 						value="1"
 					/>
 					<div class="spacers">
-						<span class="split-people">Tip/person:</span>
-						<span class="split-people">$0.00</span>
+						<span>Tip/person:</span>
+						<span class="split-tip">$0.00</span>
 					</div>
 					<div class="spacers">
-						<span class="split-people">Total bill/person:</span>
-						<span class="split-people">$0.00</span>
+						<span>Total bill/person:</span>
+						<span class="split-total">$0.00</span>
 					</div>
 				</div>
 			</div>
 		</div>
 		<script src="/app.js"></script>
+		<script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
 	</body>
 </html>

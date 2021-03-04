@@ -25,9 +25,9 @@
 	background-color: $box-color;
 	border-radius: $box-border;
 	width: $box-width;
-
 	margin-bottom: 3rem;
 	padding: 15px 0;
+	box-shadow: inset 0px 3px 3px 0px rgba($color: #5e5e5e, $alpha: 0.4);
 	// @include flex-col;
 }
 .wrapper {
