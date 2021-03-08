@@ -1,3 +1,7 @@
+// NOTE**
+// Sometimes (Total bill/person) may be one penny over actual bill, to cover total bill
+// NOTE**
+
 // Upper Box Selections
 
 const tipPercent = document.querySelector(".tip-percent");
@@ -7,46 +11,47 @@ tipSlider.oninput = function () {
 	const billInput = Number(document.querySelector("#bill-amt").value);
 	tipPercent.innerHTML = this.value + "%";
 
-	let tipAmount = document.querySelector(".tip-amount");
 	//Discovered that number input type returns a string
 	//You can wrap multiple variables in parenthesis in order to append methods
+	let tipAmount = document.querySelector(".tip-amount");
+	// if a variable is referenced but not defined, it will be added to the window element
+	tipTotal = Number((billInput * Number(this.value / 100)).toFixed(2));
 
-	let tipTotal = Number((billInput * Number(this.value / 100)).toFixed(2));
-
-	tipAmount.innerHTML = "$" + tipTotal;
+	tipAmount.innerHTML = "$" + tipTotal.toFixed(2);
 	// tipAmount.innerHTML = "$" + (billInput * Number(this.value / 100)).toFixed(2);
 	const billTotal = document.querySelector(".bill-total");
-	billTotal.innerHTML = billInput + tipTotal;
-	// ***Even number tip***
-	// tipAmount.innerHTML = Math.round(billInput.value * (this.value / 100));
+
+	billForSplit = Number(billInput + tipTotal).toFixed(2);
+
+	billTotal.innerHTML =
+		"<strong>$</strong>" + "<strong>" + billForSplit + "</strong>";
 };
 
-// TIP AMOUNT LOGIC
-// add bill amount to tip amount
-// ***********
-
 // Bottom Box Selections
-const splitPeople = document.querySelector(".split-people");
+
+// -Grab slider value
 const splitSlider = document.querySelector("#split-slider");
-const splitTip = document.querySelector(".split-tip");
-const splitTotal = document.querySelector(".split-total");
-//
 
-// tipSlider.oninput = () => {
-// 	// Upper Box Logic
-// 	const percentage = billInput * (tipPercent / 100);
-// 	const billInput = document.querySelector("#bill-amt");
+splitSlider.oninput = function () {
+	// -Grab split person value-split PERSON for 1, people for more than 1
+	const splitPeople = document.querySelector(".split-people");
+	if (splitSlider.value <= 1) {
+		splitPeople.innerHTML = splitSlider.value + " person";
+	} else {
+		splitPeople.innerHTML = splitSlider.value + " people";
+	}
+	// -grab tip per person value
+	const splitTip = document.querySelector(".split-tip");
+	// -grab total bill per person value
+	const splitTotal = document.querySelector(".split-total");
+	// -grab tip amount from box 1
 
-// 	const tipPercent = document.querySelector(".tip-percent").value;
-
-// 	const tipSlider = document.querySelector("#tip-slider");
-// 	tipPercent.innerHTML = tipSlider + "%";
-// 	document.querySelector(".tip-amount").innerHTML = billInput.value / 7;
-// };
-
-// grab bill input value
-
-// divide that by the tip percent value
-
-// Upper Box Logic
-// tipAmount.innerHTML = billInput /.value + "%";
+	// - tip per person equals tip amount / split slider value
+	splitTip.innerHTML = (tipTotal / splitSlider.value).toFixed(2);
+	// -total bill/person = billTotal / splitPerson
+	splitTotal.innerHTML =
+		"<strong>$</strong>" +
+		"<strong>" +
+		(billForSplit / splitSlider.value).toFixed(2) +
+		"</strong>";
+};
