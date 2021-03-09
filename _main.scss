@@ -157,6 +157,7 @@ input[type="range"] {
 	.container {
 		display: flex;
 		@include flex-col;
+		max-width: 1024px;
 	}
 	.box {
 		margin-bottom: 6rem;
