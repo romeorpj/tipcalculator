@@ -2,20 +2,23 @@
 // Sometimes (Total bill/person) may be one penny over actual bill, to cover total bill
 // NOTE**
 
-// Upper Box Selections
+// ##***Upper Box Selections***##
 
 const tipPercent = document.querySelector(".tip-percent");
 const tipSlider = document.querySelector("#tip-slider");
+let splitSlider = document.querySelector("#split-slider");
 
-tipSlider.oninput = function () {
+// function update() {
+
+function tipFunc() {
 	billInput = Number(document.querySelector("#bill-amt").value);
-	tipPercent.innerHTML = this.value + "%";
+	tipPercent.innerHTML = tipSlider.value + "%";
 
 	//Discovered that number input type still returns a string
 	//You can wrap multiple variables in parenthesis in order to append methods
 	let tipAmount = document.querySelector(".tip-amount");
 	// if a variable is referenced but not defined, it will be added to the window element - can now use in second function
-	tipTotal = Number((billInput * Number(this.value / 100)).toFixed(2));
+	tipTotal = Number((billInput * Number(tipSlider.value / 100)).toFixed(2));
 
 	tipAmount.innerHTML = "$" + tipTotal.toFixed(2);
 
@@ -25,14 +28,9 @@ tipSlider.oninput = function () {
 
 	billTotal.innerHTML =
 		"<strong>$</strong>" + "<strong>" + billForSplit + "</strong>";
-};
 
-// Bottom Box Selections
+	// ##***Bottom Box Selections***##
 
-// -Grab slider value
-const splitSlider = document.querySelector("#split-slider");
-
-splitSlider.oninput = function () {
 	// -Grab split person value-split PERSON for 1, people for more than 1
 	const splitPeople = document.querySelector(".split-people");
 	if (splitSlider.value <= 1) {
@@ -52,4 +50,7 @@ splitSlider.oninput = function () {
 		"<strong>" +
 		(billForSplit / splitSlider.value).toFixed(2) +
 		"</strong>";
-};
+}
+tipSlider.oninput = tipFunc;
+splitSlider.oninput = tipFunc;
+document.querySelector("#bill-amt").oninput = tipFunc;
