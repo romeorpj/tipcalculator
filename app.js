@@ -8,7 +8,7 @@ const tipPercent = document.querySelector(".tip-percent");
 const tipSlider = document.querySelector("#tip-slider");
 
 tipSlider.oninput = function () {
-	const billInput = Number(document.querySelector("#bill-amt").value);
+	billInput = Number(document.querySelector("#bill-amt").value);
 	tipPercent.innerHTML = this.value + "%";
 
 	//Discovered that number input type still returns a string
