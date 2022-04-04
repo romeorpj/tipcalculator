@@ -15,26 +15,17 @@
 	<body>
 		<div class="container">
 			<h1 class="title">Tip Calc</h1>
-			<!-- <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
-			<lord-icon
-				src="https://cdn.lordicon.com/vaeagfzc.json"
-				trigger="loop"
-				delay="1000"
-				colors="primary:#5D99E8,secondary:#778ca3"
-				style="width: 128px; height: 128px"
-			>
-			</lord-icon> -->
-			<div class="box tip">
+			<div class="box upper-tip-box">
 				<div class="wrapper">
 					<div class="bill-amount">
-						<label for="bill-amt" class="bill-amtc">Bill:</label>
+						<label for="bill-amt" class="bill-amt">Bill:</label>
 						<input
 							type="number"
 							id="bill-amt"
 							name="bill-amt"
 							placeholder="Enter Bill Amount"
-							value=""
 						/>
+<!--						value=""-->
 					</div>
 
 					<div class="spacers tip-space">
@@ -53,16 +44,17 @@
 
 					<div class="spacers">
 						<span>Tip Amount:</span>
-						<span class="tip-amount">$0.00</span>
+						<span class="tip-amount-span">$0.00</span>
 					</div>
 					<hr />
 					<div class="spacers total-bill">
 						<span class="strong-man">Total</span>
-						<span class="bill-total strong-man">$0.00</span>
+						<span class="bill-total-plus-tip strong-man">$0.00</span>
 					</div>
 				</div>
 			</div>
-			<div class="box split">
+<!--			TODO: BOTTOM SPLIT BOX-->
+			<div class="box bottom-split-box">
 				<div class="wrapper">
 					<div class="spacers">
 						<!-- if 2 or more change to people -->

@@ -1,37 +1,45 @@
 // NOTE**
 // Sometimes (Total bill/person) may be one penny over actual bill, to cover total bill
 // NOTE**
+let billAmtInput = document.querySelector("#bill-amt");
+let tipSlider = document.querySelector("#tip-slider");
+let billNumPressed;
 
-// ##***Upper Box Selections***##
 
-const tipPercent = document.querySelector(".tip-percent");
-const tipSlider = document.querySelector("#tip-slider");
-let splitSlider = document.querySelector("#split-slider");
+// TODO: BILL INPUT/UPPER BOX
+let calculateBillAndTipAmt = (e) => {
+	billNumPressed = parseInt(e.target.value);
+	// Function that handles upperbox tip logic
+	tipCalcFunction(billNumPressed);
+};
 
-// function update() {
+//Check to see if this the best way to handle two events
+billAmtInput.addEventListener("keyup", calculateBillAndTipAmt)
+billAmtInput.addEventListener("change",calculateBillAndTipAmt)
 
-function tipFunc() {
-	billInput = Number(document.querySelector("#bill-amt").value);
-	tipPercent.innerHTML = tipSlider.value + "%";
+//TODO: UPPER BOX TIP LOGIC
+function changeTipSliderFunc(e) {
+	const tipPercent = document.querySelector(".tip-percent");
+	let tipAmountSpan = document.querySelector(".tip-amount-span");
+	let billTotalPlusTip = document.querySelector(".bill-total-plus-tip");
+	let tipEvaluation = (billNumPressed * Number(tipSlider.value / 100)).toFixed(2);
+	tipPercent.textContent = e.target.value;
+	tipAmountSpan.textContent = tipEvaluation;
+	billTotalPlusTip.innerHTML = `<strong>$</strong><strong>${billNumPressed + tipEvaluation}</strong>`;
+}
+function tipCalcFunction(){
+	tipSlider.addEventListener("input", changeTipSliderFunc)
+}
 
-	//Discovered that number input type still returns a string
-	//You can wrap multiple variables in parenthesis in order to append methods
-	let tipAmount = document.querySelector(".tip-amount");
-	// if a variable is referenced but not defined, it will be added to the window element - can now use in second function
-	tipTotal = Number((billInput * Number(tipSlider.value / 100)).toFixed(2));
 
-	tipAmount.innerHTML = "$" + tipTotal.toFixed(2);
+function xx() {
 
-	const billTotal = document.querySelector(".bill-total");
 
-	billForSplit = Number(billInput + tipTotal).toFixed(2);
 
-	billTotal.innerHTML =
-		"<strong>$</strong>" + "<strong>" + billForSplit + "</strong>";
-
-	// ##***Bottom Box Selections***##
 
 	// -Grab split person value-split PERSON for 1, people for more than 1
+	let billForSplit = Number(billAmtInput + tipTotal).toFixed(2);
+	let splitSlider = document.querySelector("#split-slider");
 	const splitPeople = document.querySelector(".split-people");
 	if (splitSlider.value <= 1) {
 		splitPeople.innerHTML = splitSlider.value + " person";
@@ -51,6 +59,7 @@ function tipFunc() {
 		(billForSplit / splitSlider.value).toFixed(2) +
 		"</strong>";
 }
-tipSlider.oninput = tipFunc;
-splitSlider.oninput = tipFunc;
-document.querySelector("#bill-amt").oninput = tipFunc;
+// tipSlider.oninput = tipFunc;
+// splitSlider.oninput = tipFunc;
+// document.querySelector("#bill-amt").oninput = tipFunc;
+
