@@ -1,65 +1,70 @@
 // NOTE**
-// Sometimes (Total bill/person) may be one penny over actual bill, to cover total bill
+// --Sometimes (Total bill/person) may be one penny over actual bill, to cover total bill
+// --certain tip percents add a bunch of zeros after the decimal
+// --real time update when changing bill amount after theres already an amount in the input
 // NOTE**
+
 let billAmtInput = document.querySelector("#bill-amt");
 let tipSlider = document.querySelector("#tip-slider");
+let splitSlider = document.querySelector("#split-slider");
+const splitTipSpan = document.querySelector(".split-tip");
+const splitTotal = document.querySelector(".split-total");
 let billNumPressed;
+let tipEvaluation;
+let billPlusTipCalc;
 
+//TODO Function Calls
+//Calls bill split slider function that handles slider event
+splitBillSliderListener();
 
 // TODO: BILL INPUT/UPPER BOX
-let calculateBillAndTipAmt = (e) => {
-	billNumPressed = parseInt(e.target.value);
+function calculateBillAndTipAmt(e) {
+	billNumPressed = parseFloat(e.target.value);
 	// Function that handles upperbox tip logic
-	tipCalcFunction(billNumPressed);
-};
-
-//Check to see if this the best way to handle two events
-billAmtInput.addEventListener("keyup", calculateBillAndTipAmt)
-billAmtInput.addEventListener("change",calculateBillAndTipAmt)
+	tipCalcFunction();
+}
 
 //TODO: UPPER BOX TIP LOGIC
 function changeTipSliderFunc(e) {
 	const tipPercent = document.querySelector(".tip-percent");
 	let tipAmountSpan = document.querySelector(".tip-amount-span");
-	let billTotalPlusTip = document.querySelector(".bill-total-plus-tip");
-	let tipEvaluation = (billNumPressed * Number(tipSlider.value / 100)).toFixed(2);
+	let billTotalPlusTipSpan = document.querySelector(".bill-total-plus-tip");
+	tipEvaluation = (billNumPressed * Number(tipSlider.value / 100)).toFixed(2); //tip total
 	tipPercent.textContent = e.target.value;
 	tipAmountSpan.textContent = tipEvaluation;
-	billTotalPlusTip.innerHTML = `<strong>$</strong><strong>${billNumPressed + tipEvaluation}</strong>`;
+	billPlusTipCalc = billNumPressed + parseFloat(tipEvaluation); //total bill + tip
+	billTotalPlusTipSpan.innerHTML = `<strong>$</strong><strong>${billPlusTipCalc}</strong>`;
 }
+
+//TODO: LOWER BOX TIP LOGIC
+function splitBillFunc() {
+	const splitPeople = document.querySelector(".split-people");
+	splitSlider.value === 1 ?
+		splitPeople.textContent = `${splitSlider.value} person`:
+		splitPeople.textContent = `${splitSlider.value} people`;
+
+	getSplitTipPerPersonAmt();
+	totalBillSplitPerPerson()
+}
+
+function getSplitTipPerPersonAmt() {
+	//divides tip by amount of people(pulled from slider value)
+	splitTipSpan.textContent = `$${(tipEvaluation / splitSlider.value).toFixed(2)}`;
+}
+
+function totalBillSplitPerPerson() {
+	splitTotal.innerHTML =
+		`<strong>$</strong><strong>${(billPlusTipCalc / splitSlider.value).toFixed(2)}</strong>`
+}
+
+//Check to see if this the best way to handle two events
+billAmtInput.addEventListener("keyup", calculateBillAndTipAmt);
+billAmtInput.addEventListener("change",calculateBillAndTipAmt);
+
 function tipCalcFunction(){
 	tipSlider.addEventListener("input", changeTipSliderFunc)
 }
 
-
-function xx() {
-
-
-
-
-	// -Grab split person value-split PERSON for 1, people for more than 1
-	let billForSplit = Number(billAmtInput + tipTotal).toFixed(2);
-	let splitSlider = document.querySelector("#split-slider");
-	const splitPeople = document.querySelector(".split-people");
-	if (splitSlider.value <= 1) {
-		splitPeople.innerHTML = splitSlider.value + " person";
-	} else {
-		splitPeople.innerHTML = splitSlider.value + " people";
-	}
-	// -grab tip per person value
-	const splitTip = document.querySelector(".split-tip");
-	// -grab total bill per person value
-	const splitTotal = document.querySelector(".split-total");
-	// - tip per person equals tipTotal / split slider value
-	splitTip.innerHTML = "$" + (tipTotal / splitSlider.value).toFixed(2);
-	// -total bill/person = billTotal / splitSlider.value
-	splitTotal.innerHTML =
-		"<strong>$</strong>" +
-		"<strong>" +
-		(billForSplit / splitSlider.value).toFixed(2) +
-		"</strong>";
+function splitBillSliderListener() {
+	splitSlider.addEventListener("input", splitBillFunc)
 }
-// tipSlider.oninput = tipFunc;
-// splitSlider.oninput = tipFunc;
-// document.querySelector("#bill-amt").oninput = tipFunc;
-
