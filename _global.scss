@@ -1,0 +1,70 @@
+// Global styles
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html {
+	font-family: "Roboto", sans-serif;
+	// resetting font size to 10px makes rem math much easier
+	font-size: 10px;
+	box-sizing: border-box;
+	font-weight: 300;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+p {
+	font-size: 1.6rem;
+}
+span,
+label {
+	font-size: 1.8rem;
+}
+.strong-man {
+	font-weight: bold;
+}
+img {
+	//makes images auto responsive
+	// without overflowing, all while staying proportional
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+}
+
+// mixins
+@mixin flex-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+@mixin flex-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+// UTILITY STYLES
+.spacers {
+	@include flex-row;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+}
+
+// variables
+$box-color: rgb(250, 250, 250);
+$box-border: 20px;
+$box-width: 90%;
+$box-height: 40vh;
+// $icon-color: #e84118;

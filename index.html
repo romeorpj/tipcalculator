@@ -5,19 +5,30 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<div class="container">
 			<h1 class="title">Tip Calc</h1>
-			<div class="box tip">
-				<div class="bill-amount">
-					<label for="bill-amt">Bill Amount:</label>
-					<input type="text" id="bill-amt" name="bill-amt" />
-				</div>
+			<div class="box upper-tip-box">
+				<div class="wrapper">
+					<div class="bill-amount">
+						<label for="bill-amt" class="bill-amt">Bill:</label>
+						<input
+							type="number"
+							id="bill-amt"
+							name="bill-amt"
+							placeholder="Enter Bill Amount"
+						/>
 
-				<div class="percentage">
-					<div class="spacers">
+					</div>
+
+					<div class="spacers tip-space">
 						<label for="tip-slider">Tip Percent:</label>
 						<span class="tip-percent">0%</span>
 					</div>
@@ -28,42 +39,48 @@
 						id="tip-slider"
 						min="0"
 						max="100"
+						value="0"
 					/>
-				</div>
-				<div class="tip-total">
-					<span>Tip Amount</span>
-					<span class="tip-value">$0.00</span>
-				</div>
-				<hr />
-				<div class="spacers total-bill">
-					<span><strong>Total</strong></span>
-					<span><strong>$0.00</strong></span>
+
+					<div class="spacers">
+						<span>Tip Amount:</span>
+						<span class="tip-amount-span">$0.00</span>
+					</div>
+					<hr />
+					<div class="spacers total-bill">
+						<span class="strong-man">Total</span>
+						<span class="bill-total-plus-tip strong-man">$0.00</span>
+					</div>
 				</div>
 			</div>
-			<div class="box split">
-				<div class="spacers">
-					<!-- if 2 or more change to people -->
-					<label for="split-slider">Split:</label>
-					<span class="split-people">1 person</span>
-				</div>
-				<input
-					type="range"
-					name="split-slider"
-					id="split-slider"
-					min="1"
-					max="20"
-					value="1"
-				/>
-				<div class="spacers">
-					<span class="split-people">Tip/person:</span>
-					<span class="split-people">$0.00</span>
-				</div>
-				<div class="spacers">
-					<span class="split-people">Total bill/person:</span>
-					<span class="split-people">$0.00</span>
+<!--			TODO: BOTTOM SPLIT BOX-->
+			<div class="box bottom-split-box">
+				<div class="wrapper">
+					<div class="spacers">
+						<!-- if 2 or more change to people -->
+						<label for="split-slider">Split:</label>
+						<span class="split-people">1 person</span>
+					</div>
+					<input
+						type="range"
+						name="split-slider"
+						id="split-slider"
+						min="1"
+						max="20"
+						value="1"
+					/>
+					<div class="spacers">
+						<span>Tip/person:</span>
+						<span class="split-tip">$0.00</span>
+					</div>
+					<div class="spacers">
+						<span class="strong-man">Total bill/person:</span>
+						<span class="split-total strong-man">$0.00</span>
+					</div>
 				</div>
 			</div>
 		</div>
 		<script src="/app.js"></script>
+		<script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
 	</body>
 </html>
